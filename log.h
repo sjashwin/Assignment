@@ -1,6 +1,7 @@
 #include<time.h>
 #include<stdio.h>
 #include<stdlib.h>
+#include<errno.h>
 #include<time.h>
 extern int x ; //Global x value.
 extern FILE *file ;
@@ -13,7 +14,7 @@ int addmsg( log_data data ) ;
 void clearlog( void ) ;
 char *getlog( void ) ;
 void set_x(char* value) ;
-void rename_file(char* name) ;
+int rename_file(char* name) ;
 void write_err_msg(char* msg, char *buggy_code) ;
 char *get_time() ;
 

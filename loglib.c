@@ -1,5 +1,6 @@
 #include<string.h>
 #include<stdlib.h>
+#include<errno.h>
 #include<dirent.h>
 #include "log.h"
 char *message ;
@@ -45,7 +46,7 @@ void set_x(char* value){
 	addmsg(data) ;
 	savelog(filename) ;
 }
-void rename_file(char *re_name){
+int rename_file(char *re_name){
 	log_data data ;
 	DIR *directory = opendir("./") ;
 	struct dirent *ent ;
@@ -57,11 +58,18 @@ void rename_file(char *re_name){
 			}
 		}
 	}
+	if(strncmp(re_name+strlen(re_name)-4, ".txt", 4)!=0){
+		write_err_msg((char *)"Enter filename with extension .txt", (char *)"./file");
+		errno = EINVAL ;
+		perror("Enter filename with extension .txt") ;
+		return 1 ;
+	}
 	data.data_message = (rename(filename, re_name) == 0)?"File name changed":"File Does not exist" ;
 	data.time = time(NULL) ;
 	filename = re_name ;
 	addmsg(data) ;
 	savelog(filename) ;
+	return 0 ;
 }
 void write_err_msg(char* msg, char *buggy_code){
 	log_data data ;

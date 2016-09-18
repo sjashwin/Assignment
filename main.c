@@ -1,5 +1,4 @@
 #include<unistd.h>
-#include<errno.h>
 #include "log.h"
 log_data data ;
 int c ;
