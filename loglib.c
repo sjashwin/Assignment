@@ -35,7 +35,8 @@ void set_x(char* value){
 	char temp[100] ;
 	x = atoi(value) ;
 	log_data data ;
-	strcpy(temp, "x = ") ;
+	strcpy(temp, get_time()) ;
+	strcat(temp, "x = ") ;
 	strcat(temp, value) ;
 	strcat(temp, "\n") ;
 	data.data_message = temp ;
