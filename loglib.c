@@ -1,8 +1,9 @@
 #include<string.h>
 #include<stdlib.h>
+#include<dirent.h>
 #include "log.h"
 char *message ;
-char *filename="logfile.txt" ;
+char *filename = "logfile.txt" ;
 int x = 42 ;
 FILE *file ;
 typedef struct list{
@@ -46,6 +47,16 @@ void set_x(char* value){
 }
 void rename_file(char *re_name){
 	log_data data ;
+	DIR *directory = opendir("./") ;
+	struct dirent *ent ;
+	if(directory != NULL){
+		while((ent = readdir(directory))!=NULL){
+			int length = strlen(ent->d_name) ;
+			if(strncmp(ent->d_name+length-4, ".txt", 4) == 0){
+				filename = ent->d_name ;
+			}
+		}
+	}
 	data.data_message = (rename(filename, re_name) == 0)?"File name changed":"File Does not exist" ;
 	data.time = time(NULL) ;
 	filename = re_name ;
