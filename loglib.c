@@ -20,8 +20,8 @@ int addmsg(log_data data){
 }
 char *getlog(void){
 	message = (char *)malloc(sizeof(char)*100) ;
-	strcpy(message, get_time(tailptr->item.time)) ;
-	strcat(message, tailptr->item.data_message) ;
+	strcpy(message, tailptr->item.data_message) ;
+	strcat(message, get_time(tailptr->item.time)) ;
 	return message ;
 }
 int savelog(char *file_name){

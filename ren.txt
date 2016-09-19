@@ -1,8 +1,8 @@
-Mon Sep 19 02:54:00 201./file: Mon Sep 19 02:54:00 201:x = 42
-
-Mon Sep 19 02:54:00 201./file: Mon Sep 19 02:54:00 201:x = 42
-
-Mon Sep 19 02:54:21 201./file: Mon Sep 19 02:54:21 201:x = 40
-
-Mon Sep 19 02:54:48 201./file: Mon Sep 19 02:54:48 201: Error :Option -l requires an argument
-Mon Sep 19 02:55:07 201File name changed :
+./file: Mon Sep 19 03:52:08 201:x = 42
+Mon Sep 19 03:52:08 201
+./file: Mon Sep 19 03:52:08 201: Error :Option -l requires an argumentMon Sep 19 03:52:08 201
+./file: Mon Sep 19 03:52:37 201:x = 40
+Mon Sep 19 03:52:37 201
+ File name changedMon Sep 19 03:52:47 201
+./file: Mon Sep 19 03:52:53 201: Error :Enter filename with extension .txtMon Sep 19 03:52:53 201
+ File name changedMon Sep 19 03:52:59 201
