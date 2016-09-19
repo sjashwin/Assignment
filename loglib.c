@@ -63,7 +63,7 @@ int rename_file(char *re_name, char *code_file){
 		perror("Enter filename with extension .txt") ;
 		return 1 ;
 	}
-	data.data_message = (rename(filename, re_name) == 0)?"File name changed :":" Error :File Does not exist" ;
+	data.data_message = (rename(filename, re_name) == 0)?" File name changed":" Error :File Does not exist" ;
 	data.time = time(NULL) ;
 	filename = re_name ;
 	addmsg(data) ;
