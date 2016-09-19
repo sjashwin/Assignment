@@ -91,5 +91,4 @@ char *get_time(time_t now){
 	temp = asctime(timeinfo) ;
 	temp[strlen(temp)-2] = '\0' ;
 	return temp ;
-	//return asctime(timeinfo) ;
 }

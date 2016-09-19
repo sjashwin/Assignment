@@ -31,8 +31,8 @@ int main( int argc, char **argv){
 			if(optopt == 'n'){
 				errno = EINVAL ;
 				set_x("42", argv[0]) ;
-				//perror("Option -c requires an argument.") ;
-				//write_err_msg("Option -c requires an argument", argv[0]) ;
+				perror("Option -c requires an argument, Default value 42 is logged.") ;
+				write_err_msg("Option -c requires an argument to overrride default value", argv[0]) ;
 			}
 			else if(optopt == 'l'){
 				errno = EINVAL ;
