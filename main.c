@@ -14,7 +14,7 @@ int main( int argc, char **argv){
 				found++ ;
 		}
 		if(found == 0)
-			set_x("42") ;
+			set_x("42", argv[0]) ;
 	}
 	while((c = getopt(argc, argv, "hl:n:"))!=-1){
 		switch(c){
@@ -22,7 +22,7 @@ int main( int argc, char **argv){
 			printf("%s", "-h - Help\n-n - set the value of x\n-l - rename the logfile\n") ;
 			break ;
 		case 'n':
-			set_x(optarg) ;
+			set_x(optarg, argv[0]) ;
 			break ;
 		case 'l':
 			rename_file(optarg, argv[0]) ;
@@ -30,8 +30,9 @@ int main( int argc, char **argv){
 		case '?' :
 			if(optopt == 'n'){
 				errno = EINVAL ;
-				perror("Option -c requires an argument.") ;
-				write_err_msg("Option -c requires an argument", argv[0]) ;
+				set_x("42", argv[0]) ;
+				//perror("Option -c requires an argument.") ;
+				//write_err_msg("Option -c requires an argument", argv[0]) ;
 			}
 			else if(optopt == 'l'){
 				errno = EINVAL ;

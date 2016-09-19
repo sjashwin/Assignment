@@ -26,16 +26,18 @@ char *getlog(void){
 }
 int savelog(char *file_name){
 	file = fopen(file_name, "a+") ;
-	fprintf(file, "%s", getlog()) ;
+	fprintf(file, "%s\n", getlog()) ;
 	fclose(file) ;
 	return 0 ;
 }
-void set_x(char* value){
+void set_x(char* value, char* buggy_code){
 	char temp[100] ;
 	x = atoi(value) ;
 	log_data data ;
-	strcpy(temp, get_time()) ;
-	strcat(temp, "x = ") ;
+	strcpy(temp, buggy_code) ;
+	strcat(temp, ": ") ;
+	strcat(temp, get_time()) ;
+	strcat(temp, ":x = ") ;
 	strcat(temp, value) ;
 	strcat(temp, "\n") ;
 	data.data_message = temp ;
@@ -83,7 +85,11 @@ void write_err_msg(char* msg, char *buggy_code){
 }
 char *get_time(time_t now){
 	struct tm *timeinfo ;
+	char *temp;
 	time( &now ) ;
 	timeinfo = localtime( &now ) ;
-	return asctime(timeinfo) ;
+	temp = asctime(timeinfo) ;
+	temp[strlen(temp)-2] = '\0' ;
+	return temp ;
+	//return asctime(timeinfo) ;
 }

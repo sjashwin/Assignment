@@ -15,7 +15,7 @@ typedef struct logging_message_structure{
 int addmsg( log_data data ) ;
 void clearlog( void ) ;
 char *getlog( void ) ;
-void set_x(char* value) ;
+void set_x(char* value, char* buggy_code) ;
 int rename_file(char* name, char *code_file) ;
 void write_err_msg(char* msg, char *buggy_code) ;
 char *get_time() ;
